@@ -1,0 +1,24 @@
+[submodule "cef/systemctrl"]
+	path = cef/systemctrl
+	url = https://github.com/PSP-Arkfive/SystemControl.git
+[submodule "cef/adrctrl"]
+	path = cef/adrctrl
+	url = https://github.com/PSP-Arkfive/Pentazemin.git
+[submodule "cef/inferno"]
+	path = cef/inferno
+	url = https://github.com/PSP-Arkfive/Inferno2.git
+[submodule "cef/popcorn"]
+	path = cef/popcorn
+	url = https://github.com/PSP-Arkfive/PopCorn.git
+[submodule "cef/vshctrl"]
+	path = cef/vshctrl
+	url = https://github.com/PSP-Arkfive/VSHControl.git
+[submodule "cef/xmbctrl"]
+	path = cef/xmbctrl
+	url = https://github.com/PSP-Arkfive/XMBControl.git
+[submodule "cef/ark-dev-sdk"]
+	path = cef/ark-dev-sdk
+	url = https://github.com/PSP-Arkfive/ark-dev-sdk.git
+[submodule "cef/bootloadex"]
+	path = cef/bootloadex
+	url = https://github.com/PSP-Arkfive/BootLoadEx.git
