@@ -1,13 +1,14 @@
-6.61 Adrenaline
+6.61 Adrenaline+ARK
 ================================================================================
 
 A software that transforms your PS Vita into a two-in-one device
 
-What is Adrenaline?
+What is Adrenaline+ARK?
 -------------------
 Adrenaline is a software that modifies the official PSP Emulator using [taiHEN CFW framework](https://github.com/yifanlu/taiHEN)
 to make it run a PSP 6.61 custom firmware. Thanks to the power of taiHEN, Adrenaline can
 inject custom code into the IPL which allows unsigned code to run at boottime.
+This version of Adrenaline will load ARK-5 CFW.
 
 How to update
 -------------
