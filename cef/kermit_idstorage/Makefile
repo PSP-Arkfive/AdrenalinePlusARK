@@ -21,7 +21,7 @@ PRX_EXPORTS = exports.exp
 USE_KERNEL_LIBC = 1
 USE_KERNEL_LIBS = 1
 
-LIBDIR = ../lib
+LIBDIR = external/libs
 LIBS = -lpspwlandrv_driver -lpspkermitperipheral_driver
 
 PSPSDK = $(shell psp-config --pspsdk-path)
