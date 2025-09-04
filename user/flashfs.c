@@ -31,22 +31,16 @@
 
 #define FLASH0_FILE(path, name) { path, (void *)&_binary_flash0_##name##_start, (int)&_binary_flash0_##name##_size }
 
-INCLUDE_EXTERN_RESOURCE(kd_galaxy_prx);
 INCLUDE_EXTERN_RESOURCE(kd_inferno_prx);
 INCLUDE_EXTERN_RESOURCE(kd_kermit_idstorage_prx);
 INCLUDE_EXTERN_RESOURCE(kd_libpsardumper_prx);
-INCLUDE_EXTERN_RESOURCE(kd_march33_prx);
-INCLUDE_EXTERN_RESOURCE(kd_pspbtjnf_bin);
-INCLUDE_EXTERN_RESOURCE(kd_pspbtknf_bin);
-INCLUDE_EXTERN_RESOURCE(kd_pspbtlnf_bin);
-INCLUDE_EXTERN_RESOURCE(kd_pspbtmnf_bin);
-INCLUDE_EXTERN_RESOURCE(kd_pspbtrnf_bin);
+INCLUDE_EXTERN_RESOURCE(kd_psvbtjnf_bin);
+INCLUDE_EXTERN_RESOURCE(kd_psvbtknf_bin);
 INCLUDE_EXTERN_RESOURCE(kd_systemctrl_prx);
 INCLUDE_EXTERN_RESOURCE(kd_popcorn_prx);
 INCLUDE_EXTERN_RESOURCE(kd_vshctrl_prx);
+INCLUDE_EXTERN_RESOURCE(kd_pentazemin_prx);
 INCLUDE_EXTERN_RESOURCE(vsh_module_xmbctrl_prx);
-INCLUDE_EXTERN_RESOURCE(vsh_module_recovery_prx);
-INCLUDE_EXTERN_RESOURCE(vsh_module_satelite_prx);
 
 typedef struct {
   char *name;
@@ -55,22 +49,16 @@ typedef struct {
 } ScePspemuFlash0Package;
 
 static ScePspemuFlash0Package custom_package[] = {
-  FLASH0_FILE("/kd/galaxy.prx",           kd_galaxy_prx),
   FLASH0_FILE("/kd/inferno.prx",          kd_inferno_prx),
   FLASH0_FILE("/kd/kermit_idstorage.prx", kd_kermit_idstorage_prx),
   FLASH0_FILE("/kd/libpsardumper.prx",    kd_libpsardumper_prx),
-  FLASH0_FILE("/kd/march33.prx",          kd_march33_prx),
-  FLASH0_FILE("/kd/pspbtjnf.bin",         kd_pspbtjnf_bin),
-  FLASH0_FILE("/kd/pspbtknf.bin",         kd_pspbtknf_bin),
-  FLASH0_FILE("/kd/pspbtlnf.bin",         kd_pspbtlnf_bin),
-  FLASH0_FILE("/kd/pspbtmnf.bin",         kd_pspbtmnf_bin),
-  FLASH0_FILE("/kd/pspbtrnf.bin",         kd_pspbtrnf_bin),
+  FLASH0_FILE("/kd/psvbtjnf.bin",         kd_psvbtjnf_bin),
+  FLASH0_FILE("/kd/psvbtknf.bin",         kd_psvbtknf_bin),
   FLASH0_FILE("/kd/systemctrl.prx",       kd_systemctrl_prx),
   FLASH0_FILE("/kd/popcorn.prx",          kd_popcorn_prx),
   FLASH0_FILE("/kd/vshctrl.prx",          kd_vshctrl_prx),
+  FLASH0_FILE("/kd/pentazemin.prx",          kd_pentazemin_prx),
   FLASH0_FILE("/vsh/module/xmbctrl.prx",  vsh_module_xmbctrl_prx),
-  FLASH0_FILE("/vsh/module/recovery.prx", vsh_module_recovery_prx),
-  FLASH0_FILE("/vsh/module/satelite.prx", vsh_module_satelite_prx),
 };
 
 #define SCE_PSPEMU_TEMP_SIZE 1 * 1024 * 1024
