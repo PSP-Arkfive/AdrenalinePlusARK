@@ -1,7 +1,7 @@
 all: _libs _adrctrl _systemctrl _popcorn _inferno _vshctrl _kermit_idstorage _xmbctrl
 
 _libs:
-	make -C ark-dev-sdk
+	make -C ark-dev-sdk -j
 
 _btcnf:
 # 	make -C adrctrl/btcnf clean
@@ -25,41 +25,30 @@ _binary:
 
 _adrctrl: _rebootex _binary
 	make -C adrctrl clean
-	cp ark-dev-sdk/include/*.h adrctrl/external/include/
-	cp ark-dev-sdk/libs/*.a adrctrl/external/libs/
-	make -C adrctrl
+	make ARKSDK="../ark-dev-sdk" -C adrctrl
 	cp "adrctrl/pentazemin.prx" "../user/flash0/kd/pentazemin.prx"
 
 _systemctrl: | _libs
 	make -C systemctrl clean
-	cp ark-dev-sdk/include/*.h systemctrl/external/include/
-	cp ark-dev-sdk/libs/*.a systemctrl/external/libs/
-	cp ark-dev-sdk/src/ansi-c/*.c systemctrl/external/src/
-	make -C systemctrl
+	make ARKSDK="../ark-dev-sdk" -C systemctrl
 	psp-packer systemctrl/systemctrl.prx
 	cp "systemctrl/systemctrl.prx" "../user/flash0/kd/systemctrl.prx"
 
 _popcorn: | _libs
 	make -C popcorn clean
-	cp ark-dev-sdk/include/*.h popcorn/external/include/
-	cp ark-dev-sdk/libs/*.a popcorn/external/libs/
-	make -C popcorn
+	make ARKSDK="../ark-dev-sdk" -C popcorn
 	psp-packer popcorn/popcorn.prx
 	cp "popcorn/popcorn.prx" "../user/flash0/kd/popcorn.prx"
 
 _inferno: | _libs
 	make -C inferno clean
-	cp ark-dev-sdk/include/*.h inferno/external/include/
-	cp ark-dev-sdk/libs/*.a inferno/external/libs/
-	make -C inferno
+	make ARKSDK="../ark-dev-sdk" -C inferno
 	psp-packer inferno/inferno.prx
 	cp "inferno/inferno.prx" "../user/flash0/kd/inferno.prx"
 
 _vshctrl: | _libs
 	make -C vshctrl clean
-	cp ark-dev-sdk/include/*.h vshctrl/external/include/
-	cp ark-dev-sdk/libs/*.a vshctrl/external/libs/
-	make -C vshctrl
+	make ARKSDK="../ark-dev-sdk" -C vshctrl
 	psp-packer vshctrl/vshctrl.prx
 	cp "vshctrl/vshctrl.prx" "../user/flash0/kd/vshctrl.prx"
 
@@ -71,9 +60,7 @@ _kermit_idstorage: | _libs
 
 _xmbctrl: | _libs
 	make -C xmbctrl clean
-	cp ark-dev-sdk/include/*.h xmbctrl/external/include/
-	cp ark-dev-sdk/libs/*.a xmbctrl/external/libs/
-	make -C xmbctrl
+	make ARKSDK="../ark-dev-sdk" -C xmbctrl
 	psp-packer xmbctrl/xmbctrl.prx
 	cp "xmbctrl/xmbctrl.prx" "../user/flash0/vsh/module/xmbctrl.prx"
 
