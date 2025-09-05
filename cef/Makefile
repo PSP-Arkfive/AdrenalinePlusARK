@@ -1,6 +1,6 @@
 PY = $(shell which python3)
 
-all: _libs _adrctrl _btcnf _systemctrl _popcorn _inferno _vshctrl _kermit_idstorage _xmbctrl
+all: _libs _adrctrl _btcnf _systemctrl _popcorn _inferno _vshctrl _kermit_idstorage _stargate _xmbctrl
 
 _libs:
 	make -C ark-dev-sdk -j
@@ -29,31 +29,31 @@ _binary:
 _adrctrl: _rebootex _binary
 	make -C adrctrl clean
 	make ARKSDK="../ark-dev-sdk" -C adrctrl
-	cp "adrctrl/pentazemin.prx" "../user/flash0/kd/pentazemin.prx"
+	cp "adrctrl/pentazemin.prx" "../user/flash0/kd/ark_vitaplus.prx"
 
 _systemctrl: | _libs
 	make -C systemctrl clean
 	make ARKSDK="../ark-dev-sdk" -C systemctrl
 	psp-packer systemctrl/systemctrl.prx
-	cp "systemctrl/systemctrl.prx" "../user/flash0/kd/systemctrl.prx"
+	cp "systemctrl/systemctrl.prx" "../user/flash0/kd/ark_systemctrl.prx"
 
 _popcorn: | _libs
 	make -C popcorn clean
 	make ARKSDK="../ark-dev-sdk" -C popcorn
 	psp-packer popcorn/popcorn.prx
-	cp "popcorn/popcorn.prx" "../user/flash0/kd/popcorn.prx"
+	cp "popcorn/popcorn.prx" "../user/flash0/kd/ark_popcorn.prx"
 
 _inferno: | _libs
 	make -C inferno clean
 	make ARKSDK="../ark-dev-sdk" -C inferno
 	psp-packer inferno/inferno.prx
-	cp "inferno/inferno.prx" "../user/flash0/kd/inferno.prx"
+	cp "inferno/inferno.prx" "../user/flash0/kd/ark_inferno.prx"
 
 _vshctrl: | _libs
 	make -C vshctrl clean
 	make ARKSDK="../ark-dev-sdk" -C vshctrl
 	psp-packer vshctrl/vshctrl.prx
-	cp "vshctrl/vshctrl.prx" "../user/flash0/kd/vshctrl.prx"
+	cp "vshctrl/vshctrl.prx" "../user/flash0/kd/ark_vshctrl.prx"
 
 _kermit_idstorage: | _libs
 	make -C kermit_idstorage clean
@@ -61,11 +61,17 @@ _kermit_idstorage: | _libs
 	psp-packer kermit_idstorage/kermit_idstorage.prx
 	cp "kermit_idstorage/kermit_idstorage.prx" "../user/flash0/kd/kermit_idstorage.prx"
 
+_stargate: | _libs
+	make -C stargate clean
+	make ARKSDK="../ark-dev-sdk" -C stargate
+	psp-packer stargate/stargate.prx
+	cp "stargate/stargate.prx" "../user/flash0/kd/ark_stargate.prx"
+
 _xmbctrl: | _libs
 	make -C xmbctrl clean
 	make ARKSDK="../ark-dev-sdk" -C xmbctrl
 	psp-packer xmbctrl/xmbctrl.prx
-	cp "xmbctrl/xmbctrl.prx" "../user/flash0/vsh/module/xmbctrl.prx"
+	cp "xmbctrl/xmbctrl.prx" "../user/flash0/kd/ark_xmbctrl.prx"
 
 
 clean:
@@ -78,4 +84,5 @@ clean:
 	make -C inferno clean
 	make -C vshctrl clean
 	make -C kermit_idstorage clean
+	make -C stargate clean
 	make -C xmbctrl clean

@@ -37,10 +37,11 @@ INCLUDE_EXTERN_RESOURCE(kd_libpsardumper_prx);
 INCLUDE_EXTERN_RESOURCE(kd_psvbtjnf_bin);
 INCLUDE_EXTERN_RESOURCE(kd_psvbtknf_bin);
 INCLUDE_EXTERN_RESOURCE(kd_systemctrl_prx);
+INCLUDE_EXTERN_RESOURCE(kd_stargate_prx);
 INCLUDE_EXTERN_RESOURCE(kd_popcorn_prx);
 INCLUDE_EXTERN_RESOURCE(kd_vshctrl_prx);
 INCLUDE_EXTERN_RESOURCE(kd_pentazemin_prx);
-INCLUDE_EXTERN_RESOURCE(vsh_module_xmbctrl_prx);
+INCLUDE_EXTERN_RESOURCE(kd_xmbctrl_prx);
 
 typedef struct {
   char *name;
@@ -49,16 +50,17 @@ typedef struct {
 } ScePspemuFlash0Package;
 
 static ScePspemuFlash0Package custom_package[] = {
-  FLASH0_FILE("/kd/inferno.prx",          kd_inferno_prx),
-  FLASH0_FILE("/kd/kermit_idstorage.prx", kd_kermit_idstorage_prx),
-  FLASH0_FILE("/kd/libpsardumper.prx",    kd_libpsardumper_prx),
-  FLASH0_FILE("/kd/psvbtjnf.bin",         kd_psvbtjnf_bin),
-  FLASH0_FILE("/kd/psvbtknf.bin",         kd_psvbtknf_bin),
-  FLASH0_FILE("/kd/systemctrl.prx",       kd_systemctrl_prx),
-  FLASH0_FILE("/kd/popcorn.prx",          kd_popcorn_prx),
-  FLASH0_FILE("/kd/vshctrl.prx",          kd_vshctrl_prx),
-  FLASH0_FILE("/kd/pentazemin.prx",          kd_pentazemin_prx),
-  FLASH0_FILE("/vsh/module/xmbctrl.prx",  vsh_module_xmbctrl_prx),
+	FLASH0_FILE("/kd/kermit_idstorage.prx", kd_kermit_idstorage_prx),
+	FLASH0_FILE("/kd/libpsardumper.prx",    kd_libpsardumper_prx),
+	FLASH0_FILE("/psvbtjnf.bin",         kd_psvbtjnf_bin),
+	FLASH0_FILE("/psvbtknf.bin",         kd_psvbtknf_bin),
+	FLASH0_FILE("/kd/ark_systemctrl.prx",   kd_systemctrl_prx),
+	FLASH0_FILE("/kd/ark_stargate.prx",     kd_stargate_prx),
+	FLASH0_FILE("/kd/ark_popcorn.prx",      kd_popcorn_prx),
+	FLASH0_FILE("/kd/ark_inferno.prx",      kd_inferno_prx),
+  	FLASH0_FILE("/kd/ark_vshctrl.prx",      kd_vshctrl_prx),
+ 	FLASH0_FILE("/kd/ark_vitaplus.prx",     kd_pentazemin_prx),
+  	FLASH0_FILE("/kd/ark_xmbctrl.prx",      kd_xmbctrl_prx),
 };
 
 #define SCE_PSPEMU_TEMP_SIZE 1 * 1024 * 1024
