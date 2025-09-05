@@ -1,15 +1,18 @@
-all: _libs _adrctrl _systemctrl _popcorn _inferno _vshctrl _kermit_idstorage _xmbctrl
+PY = $(shell which python3)
+
+all: _libs _adrctrl _btcnf _systemctrl _popcorn _inferno _vshctrl _kermit_idstorage _xmbctrl
 
 _libs:
 	make -C ark-dev-sdk -j
 
 _btcnf:
-# 	make -C adrctrl/btcnf clean
-# 	make -C adrctrl/btcnf
+	$(PY) btcnf.py build adrctrl/btcnf/psvbtjnf.txt
+	$(PY) btcnf.py build adrctrl/btcnf/psvbtknf.txt
+	mv adrctrl/btcnf/*.bin ../user/flash0/
 
 _rebootex:
 	make -C adrctrl/rebootex clean
-	REBOOTEXDIR=../../bootloadex make -C adrctrl/rebootex
+	make REBOOTEXDIR=../../bootloadex -C adrctrl/rebootex
 
 _payloadex:
 # 	make -C payloadex clean
