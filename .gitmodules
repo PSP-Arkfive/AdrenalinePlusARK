@@ -22,3 +22,6 @@
 [submodule "cef/bootloadex"]
 	path = cef/bootloadex
 	url = https://github.com/PSP-Arkfive/BootLoadEx.git
+[submodule "cef/stargate"]
+	path = cef/stargate
+	url = git@github.com:PSP-Arkfive/Stargate.git
